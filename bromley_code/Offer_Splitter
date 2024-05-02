@@ -1,0 +1,15 @@
+# Splitting the School offer data based on the school 
+
+library(dplyr)
+library(tidyverse)
+library(readxl)
+library(openxlsx)
+
+maindf <- read_xlsx("./OFFERS MASTER TO EDIT AND SPLIT.xlsx")
+
+df <- maindf |> filter(maindf$`PREF SCH LA` == "305")
+
+for (i in unique(df$`Offered School`)) {
+  sdf <- df |> filter(df$`Offered School` == i)
+  write.xlsx(sdf, paste0("../Data/Cleaned Data/", i, "_Offers.xlsx"))
+}
