@@ -3,6 +3,8 @@
 #### Regression Discontinuity Graphic 
 #####################################
 
+# Creating a graphic to plot a regression discontinuity
+
 
 ESSSE$treatment <- factor(ESSSE$Treatment, labels = c("Control", "Treatment"))
 
