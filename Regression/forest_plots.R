@@ -7,6 +7,7 @@
 
 
 # Estimate models
+
 Estimates_Naive <- expand_grid(variable = c("Trust", "Obligation", "MoralAlignment", "Lawfullness", "Lawfullness", "ProceduralFairness", "Effectivness"),
                                bandwidth = c(5, 10, 15, 20, 25, 30, 35)) |>
   mutate(models =
@@ -49,7 +50,9 @@ ggsave("./Analysis/Figures/Forest_ESSSE_Naive.png")
 
 
 
-## Forest plot with co variate adjustment
+## Forest plot with covariate adjustment
+
+# Estimate Models
 
 Estimates_Covariate_Adjustment <- expand_grid(variable = c("Trust", "Obligation", "MoralAlignment", "Lawfullness", "ProceduralFairness", "Effectivness"),
                                               bandwidth = c(5, 10, 15, 20, 25, 30, 35)) |>
@@ -62,6 +65,7 @@ Estimates_Covariate_Adjustment <- expand_grid(variable = c("Trust", "Obligation"
   unnest(models) |>
   filter(term == "Treatment")
 
+# Plot Graphics using ggplot 
 
 ggplot(Estimates_Covariate_Adjustment, aes(x = variable, y = estimate,
                                            group = bandwidth, label = as.character(bandwidth))) +
