@@ -1,4 +1,7 @@
+######################################
 # Regression Plots using full Bandwith
+######################################
+
 
 # Creating a box for each variable that plots the effect size and confidence interval
 
