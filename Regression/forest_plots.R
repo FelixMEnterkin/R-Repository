@@ -8,7 +8,7 @@
 
 # Estimate models
 
-Estimates_Naive <- expand_grid(variable = c("Trust", "Obligation", "MoralAlignment", "Lawfullness", "Lawfullness", "ProceduralFairness", "Effectivness"),
+Estimates_Naive <- expand_grid(variable = c("Trust", "Obligation", "MoralAlignment", "Lawfullness", "ProceduralFairness", "Effectivness"),
                                bandwidth = c(5, 10, 15, 20, 25, 30, 35)) |>
   mutate(models =
            map2(variable, bandwidth,
