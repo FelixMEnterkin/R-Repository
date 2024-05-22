@@ -1,13 +1,21 @@
 # Splitting the School offer data based on the school 
 
+# Loading packedges 
 library(dplyr)
 library(tidyverse)
 library(readxl)
 library(openxlsx)
 
+# Load master file 
 maindf <- read_xlsx("./OFFERS MASTER TO EDIT AND SPLIT.xlsx")
 
+# filter to relevent data 
 df <- maindf |> filter(maindf$`PREF SCH LA` == "305")
+
+
+# loop through school names, 
+# filter the dataset and paste this into a new excel file 
+# and save it using the name of the school in the file name 
 
 for (i in unique(df$`Offered School`)) {
   sdf <- df |> filter(df$`Offered School` == i)
